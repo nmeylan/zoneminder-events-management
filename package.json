@@ -1,0 +1,25 @@
+{
+  "name": "custom-server-koa",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@koa/router": "^8.0.7",
+    "cross-env": "^5.2.0",
+    "got": "^11.5.1",
+    "koa": "^2.0.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-encrypted-session": "^3.0.0",
+    "koa-session": "^6.0.0",
+    "next": "latest",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "request": "^2.88.2"
+  }
+}

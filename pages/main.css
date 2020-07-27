@@ -1,0 +1,131 @@
+:root {
+    --primary: #4f2898;
+    --border-secondary-color: #e4e4e4;
+    --border-gray-color: #b4b4b4;
+    --border-error-color: #f74e4e;
+    --border-radius: 4px;
+}
+
+#page-events {
+    position: relative;
+}
+
+.actions-bar {
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom: solid 1px var(--border-secondary-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+#page-events .actions-bar label {
+    padding-right: 0.5rem;
+}
+
+.events-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.events-list .event {
+    padding: 1rem;
+    flex: 0 0 auto;
+    width: 33.333333%;
+}
+
+.events-list .event img {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .events-list .event {
+        width: 50%;
+    }
+}
+
+@media (max-width: 728px) {
+    .events-list .event {
+        width: 100%;
+    }
+}
+
+#login-page {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+#login-page form {
+    width: 100%;
+    padding: 1rem;
+    max-width: 500px;
+}
+
+.card {
+    border: solid 1px var(--border-secondary-color);
+    border-radius: var(--border-radius);
+}
+
+.card-header {
+    padding: 0.5rem;
+}
+
+.card-header h1, h2, h3, h4, h5, h6, p{
+    font-weight: 300;
+}
+.card-header p {
+    margin: 0.25rem 0;
+}
+.card-header svg {
+    color: #6c757d;
+}
+
+.btn {
+    border: none;
+}
+.btn-large {
+    padding: 0.5rem;
+}
+
+.btn:disabled {
+    opacity: 0.7;
+}
+
+.btn-outline-primary, .btn-primary {
+    border-radius: var(--border-radius);
+    border: solid 1px var(--primary);
+
+}
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-outline-primary:focus, .btn-primary:focus {
+    outline-color: var(--primary);
+}
+
+form input[type=text], form input[type=password] {
+    border: solid 1px var(--border-gray-color);
+    border-radius: var(--border-radius);
+    height: 34px;
+    padding: 0 0.35rem;
+}
+
+form.has-error input[type=text], form.has-error input[type=password] {
+    border-color: var(--border-error-color);
+}
+
+form.vertical input {
+    width: 100%;
+}
+form.vertical .form-group {
+    margin-bottom: 1rem;
+}
