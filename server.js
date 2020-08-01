@@ -50,6 +50,7 @@ app.prepare().then(() => {
     rolling: false,
     renew: true,
     secure: process.env.SESSION_COOKIE_INSECURE !== 'true',
+    secureProxy: process.env.SESSION_COOKIE_INSECURE !== 'true',
     salt: process.env.SESSION_COOKIE_SALT ? Buffer.from(process.env.SESSION_COOKIE_SALT, 'base64') : Buffer.from('-KaNdRgUkXp2s5v8y2dmb8apxbgy/B?E(H+MbQeShVmYq3t6w9z$C&F', 'base64'),
     secretKey: process.env.SESSION_COOKIE_SECRET ? Buffer.from(process.env.SESSION_COOKIE_SECRET, 'base64') :  Buffer.from('y*B)E@GbKeNhRkUpWrZs2lpowu/x?z(C-EaHcMfPjSmUqXs!v$', 'base64'),
     sameSite: true,
