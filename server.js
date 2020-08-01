@@ -11,6 +11,20 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({dev})
 const handle = app.getRequestHandler()
 
+if (!process.env.ZM_HOST) {
+  console.error('ZM_HOST env was not found.\n Please provide ZM_HOST which is the root url to contact zoneminder, e.g: https://YOUR_HOST:PORT/zm/')
+  process.exit(1)
+}
+if (process.env.ZM_TLS_INSECURE === 'true') {
+  console.warn('ZM_TLS_INSECURE was set to true, peer verifier is disabled')
+}
+if (process.env.SESSION_COOKIE_INSECURE === 'true') {
+  console.warn('SESSION_COOKIE_INSECURE was set to true, session cookie secure flag is not set')
+}
+if (!process.env.SESSION_DURATION_IN_MS) {
+  console.info('SESSION_DURATION_IN_MS was not found, using default value: 1 year')
+}
+
 app.prepare().then(() => {
   const server = new Koa()
   const router = new Router()
@@ -35,7 +49,7 @@ app.prepare().then(() => {
     signed: true,
     rolling: false,
     renew: true,
-    secure: !dev,
+    secure: process.env.SESSION_COOKIE_INSECURE !== 'true',
     salt: process.env.SESSION_COOKIE_SALT || Buffer.from('-KaNdRgUkXp2s5v8y2dmb8apxbgy/B?E(H+MbQeShVmYq3t6w9z$C&F', 'base64'),
     secretKey: process.env.SESSION_COOKIE_SECRET || Buffer.from('y*B)E@GbKeNhRkUpWrZs2lpowu/x?z(C-EaHcMfPjSmUqXs!v$', 'base64'),
     sameSite: true,
