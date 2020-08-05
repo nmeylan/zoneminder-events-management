@@ -19,8 +19,8 @@
 |Env||
 |-|-|
 |ZM_HOST|root url to contact zoneminder, e.g: https://YOUR_HOST:PORT/zm/|
-|ZM_TLS_INSECURE|disable TLS peer verifier, needed if you use self signed certificate on ZM|
-|SESSION_COOKIE_INSECURE|don't set secure flag on cookie, needed if you deploy this app without https. **default** true|
+|ZM_TLS_INSECURE|disable TLS peer verifier, needed if you use self signed certificate on ZM. **default** false|
+|SESSION_COOKIE_INSECURE|don't set secure flag on cookie, needed if you deploy this app without https. **default** false|
 |SESSION_DURATION_IN_MS|Session cookie maxAge in milliseconds **default 1 year**|
 |SESSION_COOKIE_SALT|Salt to encrypt cookie sould be at least 32 bytes, **has a default value but please provide your own**|
 |SESSION_COOKIE_SECRET|Secret to encrypt cookie sould be at least 32 bytes, **has a default value but please provide your own**|
