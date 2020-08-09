@@ -11,8 +11,10 @@ const EventSnapshot = () => {
   const [event, setEvent] = useState(null)
   const {id} = router.query
   useEffect(() => {
-    get(`/api/events/${id}/snapshot`)
-      .then(response => setEvent(response))
+    if (id) {
+      get(`/api/events/${id}/snapshot`)
+        .then(response => setEvent(response))
+    }
   }, [id])
 
   function deleteEvent() {
